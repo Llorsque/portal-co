@@ -1,6 +1,6 @@
 <!doctype html><html lang="nl"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Funnel — Trajecten</title><link rel="stylesheet" href="styles.css"/></head><body><div class="container">
-<header class="headerbar"><div class="brand"><div class="dot"></div><strong>Club Portal</strong><span class="small">funnel</span></div><nav class="btns"><a class="ghost" href="index.html">← Dashboard</a><button class="ghost logout">Uitloggen</button></nav></header>
+<title>Funnel — Trajecten (v2)</title><link rel="stylesheet" href="styles.css"/></head><body><div class="container">
+<header class="headerbar"><div class="brand"><div class="dot"></div><strong>Club Portal</strong><span class="small">funnel v2</span></div><nav class="btns"><a class="ghost" href="index.html">← Dashboard</a><button class="ghost logout">Uitloggen</button></nav></header>
 <section class="alerts hidden" id="alertsBox"><h4>⚠ Openstaande signalen</h4><div id="alertsRows"></div></section>
 <section class="card"><div class="card-header" style="justify-content:space-between;"><h2>Funnel / Pipeline</h2><div style="display:flex;gap:8px;"><button id="addCardBtn">+ Nieuw traject</button><button id="exportFunnelBtn" class="ghost">Export JSON</button><button id="clearFunnelBtn" class="danger">Alles wissen</button></div></div>
 <div class="board" id="board">
@@ -11,9 +11,27 @@
 </div></section></div>
 <div class="modal" id="cardModal"><div class="panel"><h3 id="modalTitle">Traject</h3>
 <form id="cardForm" class="grid-2"><input type="hidden" name="id"/>
-<label>Titel traject<input name="title" required/></label><label>Vereniging<input name="vereniging" required/></label><label>Contactpersoon<input name="contact"/></label><label>Telefoon/E-mail<input name="contactInfo"/></label>
-<label>Stage<select name="stage" required><option value="intake">Intake</option><option value="in_uitvoering">In uitvoering</option><option value="evaluatie">Evaluatie</option><option value="afgerond">Afgerond</option></select></label>
-<label>Laatste update<input name="lastUpdate" type="date"/></label><label class="span-2">Notities<textarea name="notes" rows="4"></textarea></label>
-<div class="span-2" style="display:flex;gap:8px;justify-content:flex-end;"><button type="button" class="secondary" id="cancelModalBtn">Annuleren</button><button type="submit" class="ok">Opslaan</button></div></form>
+<label>Vereniging<input name="vereniging" required/></label>
+<label>Type traject<select name="typeTraject" required>
+  <option value="">Kies…</option>
+  <option>CKC</option>
+  <option>Rabo Clubsupport</option>
+  <option>Verenigingsmanager</option>
+  <option>Verduurzaming</option>
+</select></label>
+<label>Clubondersteuner<input name="clubondersteuner" required/></label>
+<label>Trajectbegeleider<input name="trajectbegeleider" required/></label>
+<label>Start traject<input name="startDate" type="date" required/></label>
+<label>Verwacht einde<input name="endDateExpected" type="date" required/></label>
+<label>Stage<select name="stage" required>
+  <option value="intake">Intake</option>
+  <option value="in_uitvoering">In uitvoering</option>
+  <option value="evaluatie">Evaluatie</option>
+  <option value="afgerond">Afgerond</option>
+</select></label>
+<label>Laatste update<input name="lastUpdate" type="date"/></label>
+<label class="span-2">Notities<textarea name="notes" rows="4"></textarea></label>
+<div class="span-2" style="display:flex;gap:8px;justify-content:flex-end;"><button type="button" class="secondary" id="cancelModalBtn">Annuleren</button><button type="submit" class="ok">Opslaan</button></div>
+</form>
 </div></div>
 <script type="module" src="funnel.js"></script></body></html>
