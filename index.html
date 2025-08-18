@@ -1,158 +1,28 @@
-
-<!doctype html>
-<html lang="nl">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Club Portal (Prototype)</title>
-  <link rel="stylesheet" href="styles.css" />
-  <!-- BUILD: v0.2-full -->
-</head>
-<body>
-  <main class="container">
-    <!-- AUTH -->
-    <section id="auth" class="card">
-      <h1>Inloggen</h1>
-      <p class="hint">Prototype: demo-inlog werkt alleen in deze browser. Niet voor productie.</p>
-      <form id="loginForm">
-        <label>
-          Gebruikersnaam
-          <input type="text" id="username" required autocomplete="username" />
-        </label>
-        <label>
-          Wachtwoord
-          <input type="password" id="password" required autocomplete="current-password" />
-        </label>
-        <button type="submit">Inloggen</button>
-      </form>
-      <details class="demo">
-        <summary>Demo-accounts</summary>
-        <ul>
-          <li><code>admin</code> / <code>admin123</code> → admin-overview</li>
-          <li><code>demo</code> / <code>demo123</code> → formulier voor verenigingen</li>
-        </ul>
-      </details>
-    </section>
-
-    <!-- USER AREA -->
-    <section id="userArea" class="card hidden">
-      <header class="card-header">
-        <h2>Invoerformulier vereniging</h2>
-        <div class="spacer"></div>
-        <button id="logoutBtn" class="secondary">Uitloggen</button>
-      </header>
-
-      <form id="submissionForm" class="grid">
-        <input type="hidden" name="owner" id="owner" />
-        <label>
-          Voornaam
-          <input type="text" name="voornaam" required />
-        </label>
-        <label>
-          Achternaam
-          <input type="text" name="achternaam" required />
-        </label>
-        <label class="span-2">
-          Vereniging
-          <input type="text" name="vereniging" required />
-        </label>
-        <label class="span-2">
-          Hulpvraag
-          <textarea name="hulpvraag" rows="4" placeholder="Waar heb je ondersteuning bij nodig?" required></textarea>
-        </label>
-
-        <!-- Drie extra verplichte velden -->
-        <label>
-          E-mail
-          <input type="email" name="email" required />
-        </label>
-        <label>
-          Telefoon
-          <input type="tel" name="telefoon" required />
-        </label>
-        <label>
-          Thema
-          <select name="thema" required>
-            <option value="">Kies een thema…</option>
-            <option>Bestuur & Beleid</option>
-            <option>Subsidies & Financiën</option>
-            <option>Scholingen & Trainingen</option>
-            <option>Veilig Sportklimaat</option>
-            <option>Communicatie</option>
-          </select>
-        </label>
-
-        <!-- AVG -->
-        <label class="span-2 consent">
-          <input type="checkbox" name="consent" required />
-          Ik geef toestemming om deze gegevens in dit prototype op te slaan en te gebruiken voor testdoeleinden.
-        </label>
-
-        <div class="span-2 actions">
-          <button type="submit" id="submitBtn">Opslaan / Verzenden</button>
-          <button type="button" id="resetFormBtn" class="secondary">Formulier leegmaken</button>
-          <p class="hint">Na verzenden verschijnt een bevestiging; admin kan je inzending terugzien.</p>
-        </div>
-      </form>
-
-      <div id="userFeedback" class="toast hidden"></div>
-
-      <div class="card-sub">
-        <h3>Mijn inzendingen</h3>
-        <div class="table-wrap">
-          <table id="mySubmissionsTable">
-            <thead>
-              <tr>
-                <th>Datum</th>
-                <th>Vereniging</th>
-                <th>Thema</th>
-                <th>Status</th>
-                <th>Acties</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- ADMIN AREA -->
-    <section id="adminArea" class="card hidden">
-      <header class="card-header">
-        <h2>Admin: Overzicht inzendingen</h2>
-        <div class="spacer"></div>
-        <button id="logoutBtnAdmin" class="secondary">Uitloggen</button>
-      </header>
-
-      <div class="toolbar">
-        <input type="search" id="search" placeholder="Zoek op naam, vereniging, thema…" />
-        <button id="exportCsvBtn">Export CSV</button>
-        <button id="clearAllBtn" class="danger">Alles wissen</button>
-      </div>
-
-      <div class="table-wrap">
-        <table id="submissionsTable">
-          <thead>
-            <tr>
-              <th>Datum</th>
-              <th>Voornaam</th>
-              <th>Achternaam</th>
-              <th>Vereniging</th>
-              <th>Thema</th>
-              <th>Hulpvraag</th>
-              <th>E-mail</th>
-              <th>Telefoon</th>
-              <th>Status</th>
-              <th>Notities</th>
-              <th>Acties</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-    </section>
-  </main>
-
-  <script src="app.js"></script>
-</body>
-</html>
+<!doctype html><html lang="nl"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Portal Login — Dashboard</title><link rel="stylesheet" href="styles.css"/>
+</head><body><div class="container">
+<header class="headerbar"><div class="brand"><div class="dot"></div><strong>Club Portal</strong><span class="small">prototype</span></div><nav class="btns"><button class="ghost logout hidden">Uitloggen</button></nav></header>
+<section id="auth" class="card"><h1>Inloggen</h1><p class="hint">Demo-inlog, alleen voor deze browser. Niet voor productie.</p>
+<form id="loginForm" class="grid-2"><label>Gebruikersnaam<input type="text" id="username" required autocomplete="username"/></label>
+<label>Wachtwoord<input type="password" id="password" required autocomplete="current-password"/></label><div class="span-2"><button type="submit">Inloggen</button></div></form>
+<details class="demo" style="margin-top:10px"><summary>Demo-accounts</summary><ul><li><code>admin</code> / <code>admin123</code></li><li><code>demo</code> / <code>demo123</code></li></ul></details></section>
+<section id="dashboard" class="card hidden"><h2>Kies een module</h2><p class="hint">Wat wil je openen?</p>
+<div class="tiles">
+  <a class="tile" href="portal.html"><div class="icon">📝</div><div><h3>Portal (Formulieren)</h3><p>Inzenden en admin-overzicht.</p></div></a>
+  <a class="tile" href="funnel.html"><div class="icon">🧭</div><div><h3>Funnel (Trajecten)</h3><p>Volg voortgang en signalen bij stilstand.</p></div></a>
+</div></section>
+</div>
+<script type="module">
+  import { setSession, getSession, clearSession } from './core.js';
+  const auth=document.getElementById('auth'); const dash=document.getElementById('dashboard'); const logoutBtns=document.querySelectorAll('.logout');
+  function show(v){auth.classList.toggle('hidden',v!=='auth'); dash.classList.toggle('hidden',v!=='dash'); logoutBtns.forEach(b=>b.classList.toggle('hidden',v!=='dash'));}
+  const s=getSession(); show(s?'dash':'auth');
+  document.getElementById('loginForm').addEventListener('submit',(e)=>{e.preventDefault(); const u=document.getElementById('username').value.trim(); const p=document.getElementById('password').value;
+    const USERS=[{username:'admin',password:'admin123',role:'admin'},{username:'demo',password:'demo123',role:'user'}];
+    const me=USERS.find(x=>x.username===u&&x.password===p); if(!me){alert('Onjuiste inloggegevens (demo)'); return;}
+    setSession({username:me.username, role:me.role}); show('dash');
+  });
+  logoutBtns.forEach(btn=>btn.addEventListener('click',()=>{clearSession(); show('auth');}));
+</script>
+</body></html>

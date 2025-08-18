@@ -1,0 +1,25 @@
+<!doctype html><html lang="nl"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Portal — Formulieren</title><link rel="stylesheet" href="styles.css"/></head><body>
+<div class="container"><header class="headerbar"><div class="brand"><div class="dot"></div><strong>Club Portal</strong><span class="small">portal</span></div><nav class="btns"><a class="ghost" href="index.html">← Dashboard</a><button class="ghost logout">Uitloggen</button></nav></header>
+<section id="userArea" class="card hidden"><header class="card-header"><h2>Invoerformulier vereniging</h2></header>
+<form id="submissionForm" class="grid-2">
+<input type="hidden" name="owner" id="owner"/>
+<label>Voornaam<input name="voornaam" required/></label>
+<label>Achternaam<input name="achternaam" required/></label>
+<label class="span-2">Vereniging<input name="vereniging" required/></label>
+<label class="span-2">Hulpvraag<textarea name="hulpvraag" required placeholder="Waar heb je ondersteuning bij nodig?"></textarea></label>
+<label>E-mail<input type="email" name="email" required/></label>
+<label>Telefoon<input type="tel" name="telefoon" required/></label>
+<label>Thema<select name="thema" required><option value="">Kies…</option><option>Bestuur & Beleid</option><option>Subsidies & Financiën</option><option>Scholingen & Trainingen</option><option>Veilig Sportklimaat</option><option>Communicatie</option></select></label>
+<label class="span-2 consent"><input type="checkbox" name="consent" required/> Ik geef toestemming om deze gegevens in dit prototype op te slaan en te gebruiken voor testdoeleinden.</label>
+<div class="span-2" style="display:flex;gap:10px;align-items:center;"><button type="submit" id="submitBtn">Opslaan / Verzenden</button><button type="button" id="resetFormBtn" class="secondary">Formulier leegmaken</button><p class="hint">Na verzenden verschijnt een bevestiging.</p></div>
+</form>
+<div id="userFeedback" class="toast hidden"></div>
+<div class="card-sub"><h3>Mijn inzendingen</h3><div class="table-wrap"><table id="mySubmissionsTable"><thead><tr><th>Datum</th><th>Vereniging</th><th>Thema</th><th>Status</th><th>Acties</th></tr></thead><tbody></tbody></table></div></div>
+</section>
+<section id="adminArea" class="card hidden"><header class="card-header"><h2>Admin: Overzicht inzendingen</h2></header>
+<div style="display:flex;gap:10px;margin-bottom:10px;"><input type="search" id="search" placeholder="Zoek op naam, vereniging, thema…"/><button id="exportCsvBtn">Export CSV</button><button id="clearAllBtn" class="danger">Alles wissen</button></div>
+<div class="table-wrap"><table id="submissionsTable"><thead><tr><th>Datum</th><th>Voornaam</th><th>Achternaam</th><th>Vereniging</th><th>Thema</th><th>Hulpvraag</th><th>E-mail</th><th>Telefoon</th><th>Status</th><th>Notities</th><th>Acties</th></tr></thead><tbody></tbody></table></div>
+</section></div>
+<script type="module" src="portal.js"></script></body></html>
