@@ -1,3 +1,3 @@
-# Club Portal (Prototype)
+# Club Portal (Prototype) — GitHub Pages
 
-Demo files.
+Zie uitleg hierboven.
