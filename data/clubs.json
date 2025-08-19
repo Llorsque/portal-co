@@ -1,0 +1,26 @@
+[
+  {
+    "id": "club-001",
+    "naam": "VV Dynamo",
+    "plaats": "Amersfoort",
+    "sport": "Voetbal"
+  },
+  {
+    "id": "club-002",
+    "naam": "HV Groenstad",
+    "plaats": "Utrecht",
+    "sport": "Handbal"
+  },
+  {
+    "id": "club-003",
+    "naam": "TC Service Ace",
+    "plaats": "Zwolle",
+    "sport": "Tennis"
+  },
+  {
+    "id": "club-004",
+    "naam": "HV Hattrick",
+    "plaats": "Leiden",
+    "sport": "Hockey"
+  }
+]

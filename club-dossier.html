@@ -1,0 +1,37 @@
+<!doctype html><html lang="nl"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Club Dossier</title><link rel="stylesheet" href="styles.css"/></head><body><div class="container">
+<header class="headerbar"><div class="brand"><div class="dot"></div><strong>Club Portal</strong><span class="small">dossier</span></div><nav class="btns"><a class="ghost" href="funnel.html">← Terug naar funnel</a><button class="ghost logout">Uitloggen</button></nav></header>
+<section id="clubHeader" class="card"><h2>Club Dossier</h2><p class="hint">Overzicht van alle trajecten gekoppeld aan deze club.</p><div id="clubMeta" class="tiles"></div></section>
+<section class="card"><h3>Trajecten</h3><div class="table-wrap"><table id="tbl"><thead><tr><th>Type</th><th>Stage</th><th>Start</th><th>Einde</th><th>Begroot</th><th>Subsidie</th><th>Eigen</th><th>Restant</th></tr></thead><tbody></tbody></table></div></section>
+</div>
+<script type="module">
+import { requireAuth, attachLogout, getJSON } from './core.js';
+const s=requireAuth(); attachLogout();
+function q(k){return new URLSearchParams(location.search).get(k)}
+let CLUBS=[];
+async function loadClubs(){try{const r=await fetch('data/clubs.json',{cache:'no-store'}); CLUBS=r.ok?await r.json():[]}catch{CLUBS=[]}}
+function fmt(n){return Number(n||0).toLocaleString('nl-NL',{style:'currency',currency:'EUR'})}
+function num(n){return Number(n||0)}
+function derive(r){const budget=num(r.costBudget); const sPct=Math.min(100,Math.max(0,num(r.financingPct))); const oPct=Math.min(100,Math.max(0,num(r.ownPct))); const sAmt=Math.round(budget*sPct)/100; const oAmt=Math.round(budget*oPct)/100; const cov=Math.min(100,sPct+oPct); const covAmt=Math.min(budget,sAmt+oAmt); const rest=Math.max(0,budget-covAmt); return {budget,sPct,oPct,sAmt,oAmt,cov,rest}}
+async function render(){
+  await loadClubs();
+  const clubId=q('clubId'); const club=CLUBS.find(c=>c.id===clubId)||{naam:'(onbekend)',plaats:'',sport:''};
+  const meta=document.getElementById('clubMeta'); meta.innerHTML='';
+  const card=(t,v)=>{const d=document.createElement('div'); d.className='tile'; d.innerHTML=`<div class='icon'>🏷️</div><div><h3>${t}</h3><p><strong>${v}</strong></p></div>`; return d; };
+  meta.appendChild(card('Vereniging', club.naam));
+  if(club.plaats) meta.appendChild(card('Plaats', club.plaats));
+  if(club.sport) meta.appendChild(card('Sport', club.sport));
+  const all=getJSON('club_portal_funnel_v5',[]).filter(x=>x.clubId===clubId);
+  const tb=document.querySelector('#tbl tbody'); tb.innerHTML='';
+  let b=0,su=0,ow=0,re=0;
+  for(const r of all){
+    const d=derive(r);
+    b+=d.budget; su+=d.sAmt; ow+=d.oAmt; re+=d.rest;
+    const tr=document.createElement('tr'); tr.innerHTML=`<td>${r.typeTraject||''}</td><td>${r.stage||''}</td><td>${r.startDate?new Date(r.startDate).toLocaleDateString():'—'}</td><td>${r.endDateExpected?new Date(r.endDateExpected).toLocaleDateString():'—'}</td><td>${fmt(d.budget)}</td><td>${fmt(d.sAmt)}</td><td>${fmt(d.oAmt)}</td><td>${fmt(d.rest)}</td>`; tb.appendChild(tr);
+  }
+  // summary row
+  const tr=document.createElement('tr'); tr.innerHTML=`<td><strong>Totaal</strong></td><td></td><td></td><td></td><td><strong>${fmt(b)}</strong></td><td><strong>${fmt(su)}</strong></td><td><strong>${fmt(ow)}</strong></td><td><strong>${fmt(re)}</strong></td>`; tb.appendChild(tr);
+}
+render();
+</script>
+</body></html>
