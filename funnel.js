@@ -1,29 +1,19 @@
+
 import { requireAuth, attachLogout, getJSON, setJSON, escapeHtml, uid, daysSince } from './core.js';
 const s=requireAuth(); attachLogout();
-const storageKey="club_portal_funnel_v5";
+const storageKey='club_portal_funnel_v6'; // behoud data continuïteit
 function getData(){return getJSON(storageKey,[])} function setData(r){setJSON(storageKey,r)}
+
+const SUPPORTERS = ["Aimee", "Allard", "Birgitta", "Demi", "Jorick", "Justin", "Marvin", "Rainer", "Sybren", "Tjardo"];
+const SUPPORTER_COLORS = {
+  'Aimee':'#FF3B30','Allard':'#6C8EFF','Birgitta':'#AF52DE','Demi':'#FFC857','Jorick':'#34C759','Justin':'#4C8BF5','Marvin':'#30D158','Rainer':'#FF8A00','Sybren':'#50C8E8','Tjardo':'#8E8E93'
+};
 
 let CLUBS = [];
 async function loadClubs(){
-  try{
-    const res = await fetch('data/clubs.json',{cache:'no-store'});
-    if(res.ok){
-      CLUBS = await res.json();
-    } else {
-      CLUBS = [];
-    }
-  }catch{ CLUBS = []; }
-  renderClubOptions();
-}
-function renderClubOptions(){
-  const dl = document.getElementById('clubsList');
-  if(!dl) return;
-  dl.innerHTML = '';
-  CLUBS.forEach(c=>{
-    const opt = document.createElement('option');
-    opt.value = `${c.id} — ${c.naam}`;
-    dl.appendChild(opt);
-  });
+  try{ const res=await fetch('data/clubs.json',{cache:'no-store'}); CLUBS = res.ok?await res.json():[]; } catch { CLUBS=[]; }
+  const dl=document.getElementById('clubsList'); if(!dl) return; dl.innerHTML='';
+  CLUBS.forEach(c=>{const o=document.createElement('option'); o.value=`${c.id} — ${c.naam}`; dl.appendChild(o);});
 }
 
 // Filters
@@ -36,7 +26,6 @@ const fCoach = document.getElementById('fCoach');
 const fStartFrom = document.getElementById('fStartFrom');
 const fStartTo = document.getElementById('fStartTo');
 
-// List & metrics
 const tiles = document.getElementById('metricTiles');
 const listBody = document.querySelector('#listTable tbody');
 
@@ -55,7 +44,7 @@ function filtered(items){
     (!fStage.value || it.stage===fStage.value) &&
     (!idSel || it.clubId===idSel) &&
     (!fClubName.value || String(it.vereniging||'').toLowerCase().includes(fClubName.value.toLowerCase())) &&
-    (!fClubSupp.value || String(it.clubondersteuner||'').toLowerCase().includes(fClubSupp.value.toLowerCase())) &&
+    (!fClubSupp.value || it.clubondersteuner===fClubSupp.value) &&
     (!fCoach.value || String(it.trajectbegeleider||'').toLowerCase().includes(fCoach.value.toLowerCase())) &&
     withinDateRange(it.startDate)
   ));
@@ -127,6 +116,11 @@ function renderMetrics(rows){
   m.byType.forEach(x=>tiles.appendChild(el(`${x.type}`, x.count, null, '🧩')));
 }
 
+function colorBadge(name){
+  const c=SUPPORTER_COLORS[name]||'#666';
+  return `<span class="badge" style="background:${c}20;border-color:${c};color:${c}">${escapeHtml(name)}</span>`;
+}
+
 function renderList(rows){
   listBody.innerHTML = "";
   rows.forEach(r=>{
@@ -138,19 +132,19 @@ function renderList(rows){
       <td>${r.clubId?`<a href="${dossierLink}">${escapeHtml(r.vereniging||"")}</a>`:escapeHtml(r.vereniging||"")}</td>
       <td>${escapeHtml(r.typeTraject||"")}</td>
       <td>${escapeHtml(r.stage||"")}</td>
-      <td>${escapeHtml(r.clubondersteuner||"")}</td>
+      <td>${colorBadge(r.clubondersteuner||"-")}</td>
       <td>${escapeHtml(r.trajectbegeleider||"")}</td>
       <td>${r.startDate?new Date(r.startDate).toLocaleDateString():"—"}</td>
       <td>${r.endDateExpected?new Date(r.endDateExpected).toLocaleDateString():"—"}</td>
       <td>${dur??"—"}</td>
-      <td>${fmtMoney(r.costBudget)}</td>
+      <td>${fmtMoney(r.costBudget)}}</td>
       <td>${escapeHtml(r.financingType||"")}</td>
       <td>${(d.subPct||0).toFixed(1)}%</td>
-      <td>${fmtMoney(d.subAmt)}</td>
+      <td>${fmtMoney(d.subAmt)}}</td>
       <td>${(d.ownPct||0).toFixed(1)}%</td>
-      <td>${fmtMoney(d.ownAmt)}</td>
+      <td>${fmtMoney(d.ownAmt)}}</td>
       <td>${d.coveredPct.toFixed(1)}%</td>
-      <td>${fmtMoney(d.residuumAmt||d.residualAmt)}</td>
+      <td>${fmtMoney(d.residualAmt)}}</td>
     `;
     listBody.appendChild(tr);
   });
@@ -166,13 +160,14 @@ function renderBoard(){
     const end   = r.endDateExpected ? new Date(r.endDateExpected).toLocaleDateString() : "—";
     const club = r.vereniging || "(onbekende vereniging)";
     const card=document.createElement('div'); card.className='card-item'; card.draggable=true; card.dataset.id=r.id;
+    const supp=colorBadge(r.clubondersteuner||'-');
     card.innerHTML = `
       <div class="title">${escapeHtml(club)}</div>
       <div class="small">${escapeHtml(r.typeTraject || "")}</div>
       <div class="badges">
         <span class="badge">Start: ${start}</span>
         <span class="badge">Einde: ${end}</span>
-        <span class="badge">Clubondersteuner: ${escapeHtml(r.clubondersteuner||"-")}</span>
+        ${supp}
         <span class="badge">Begeleider: ${escapeHtml(r.trajectbegeleider||"-")}</span>
         ${r.financingType ? `<span class="badge">${escapeHtml(r.financingType)}: ${(d.subPct||0).toFixed(1)}%</span>` : ''}
         ${d.ownPct>0 ? `<span class="badge">Eigen: ${d.ownPct.toFixed(1)}%</span>` : ''}
@@ -185,7 +180,12 @@ function renderBoard(){
     const zone=document.querySelector(`.dropzone[data-stage="${r.stage}"]`); if(zone) zone.appendChild(card);
     if(daysSince(r.lastUpdate)>=7 && r.stage!=="afgerond") alerts.push(r);
   }
-  if(alerts.length){alertsBox.classList.remove('hidden'); alertsRows.innerHTML=""; for(const a of alerts){const row=document.createElement('div'); row.className='row'; row.innerHTML=`<div><strong>${escapeHtml(a.vereniging)}</strong> — ${escapeHtml(a.typeTraject)} <span class="small">(geen update sinds ${daysSince(a.lastUpdate)} dagen)</span></div><div><button class="ok" data-id="${a.id}" data-action="touch">Markeer geüpdatet</button><button class="ghost" data-id="${a.id}" data-action="open">Open</button></div>`; alertsRows.appendChild(row);} } else {alertsBox.classList.add('hidden');}
+  const alertsBox=document.getElementById('alertsBox'), alertsRows=document.getElementById('alertsRows');
+  if(alerts.length){
+    alertsBox.classList.remove('hidden'); alertsRows.innerHTML="";
+    for(const a of alerts){const row=document.createElement('div'); row.className='row'; row.innerHTML=`<div><strong>${escapeHtml(a.vereniging)}</strong> — ${escapeHtml(a.typeTraject)} <span class="small">(geen update sinds ${daysSince(a.lastUpdate)} dagen)</span></div><div><button class="ok" data-id="${a.id}" data-action="touch">Markeer geüpdatet</button><button class="ghost" data-id="${a.id}" data-action="open">Open</button></div>`; alertsRows.appendChild(row);}
+    alertsRows.addEventListener('click',e=>{ const id=e.target.dataset.id, act=e.target.dataset.action; if(!id||!act) return; const rows=getData(); const idx=rows.findIndex(x=>x.id===id); if(idx<0) return; if(act==='touch'){ rows[idx].lastUpdate=new Date().toISOString().slice(0,10); setData(rows); renderBoard(); recalc(); } if(act==='open') openModal(id); });
+  } else alertsBox.classList.add('hidden');
 }
 
 function recalc(){
@@ -212,10 +212,9 @@ function bindClubPicker(form){
   const hidden = form.querySelector('input[name="clubId"]');
   input.addEventListener('change', ()=>{
     const val = input.value;
-    // Accept either "club-id — naam" from datalist, or arbitrary text
     const hit = CLUBS.find(c => (`${c.id} — ${c.naam}`).toLowerCase() === val.toLowerCase() || c.naam.toLowerCase() === val.toLowerCase() || c.id.toLowerCase() === val.toLowerCase());
     if(hit){ hidden.value = hit.id; input.value = hit.naam; }
-    else { hidden.value = ""; } // free text, not linked
+    else { hidden.value = ""; }
   });
 }
 
@@ -234,7 +233,6 @@ function openModal(id=null){
   title.textContent = id ? "Traject bewerken" : "Nieuw traject";
   bindClubPicker(form);
 
-  // live calculations
   const costBudget = form.querySelector('#costBudget');
   const financingPct = form.querySelector('#financingPct');
   const financingAmount = form.querySelector('#financingAmount');
@@ -278,7 +276,7 @@ function openModal(id=null){
 document.getElementById('addCardBtn').addEventListener('click',()=>openModal(null));
 document.getElementById('exportFunnelBtn').addEventListener('click',()=>{
   const blob=new Blob([JSON.stringify(getData(),null,2)],{type:"application/json"});
-  const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download=`funnel-v5-${new Date().toISOString().slice(0,10)}.json`;
+  const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download=`funnel-v7b-${new Date().toISOString().slice(0,10)}.json`;
   document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
 });
 document.getElementById('clearFunnelBtn').addEventListener('click',()=>{ if(confirm('Alles wissen?')){ setData([]); renderBoard(); recalc(); } });

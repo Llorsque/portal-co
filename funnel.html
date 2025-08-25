@@ -1,6 +1,9 @@
 <!doctype html><html lang="nl"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Funnel — Trajecten (v5)</title><link rel="stylesheet" href="styles.css"/></head><body><div class="container">
-<header class="headerbar"><div class="brand"><div class="dot"></div><strong>Club Portal</strong><span class="small">funnel v5</span></div><nav class="btns"><a class="ghost" href="index.html">← Dashboard</a><button class="ghost logout">Uitloggen</button></nav></header>
+<title>Funnel — Trajecten (v7b DEV)</title>
+<link rel="stylesheet" href="styles.css"/>
+<link rel="stylesheet" href="funnel-overrides.css"/>
+</head><body><div class="container">
+<header class="headerbar"><div class="brand"><div class="dot"></div><strong>Club Portal</strong><span class="small">funnel v7b</span></div><nav class="btns"><a class="ghost" href="index.html">← Dashboard</a><button class="ghost logout">Uitloggen</button></nav></header>
 <section class="alerts hidden" id="alertsBox"><h4>⚠ Openstaande signalen</h4><div id="alertsRows"></div></section>
 <section class="card"><div class="card-header" style="justify-content:space-between;"><h2>Funnel / Pipeline</h2><div style="display:flex;gap:8px;"><button id="addCardBtn">+ Nieuw traject</button><button id="exportFunnelBtn" class="ghost">Export JSON</button><button id="clearFunnelBtn" class="danger">Alles wissen</button></div></div>
 <div class="board" id="board">
@@ -46,7 +49,9 @@
         <input id="fClubName" placeholder="bijv. Dynamo"/>
       </label>
       <label>Clubondersteuner
-        <input id="fClubSupp" placeholder="naam bevat…" />
+        <select id="fClubSupp">
+          <option value=''>Alle</option><option>Aimee</option><option>Allard</option><option>Birgitta</option><option>Demi</option><option>Jorick</option><option>Justin</option><option>Marvin</option><option>Rainer</option><option>Sybren</option><option>Tjardo</option>
+        </select>
       </label>
       <label>Trajectbegeleider
         <input id="fCoach" placeholder="naam bevat…" />
@@ -90,7 +95,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal" id="cardModal"><div class="panel"><h3 id="modalTitle">Traject</h3>
+<div class="modal" id="cardModal"><div class="panel panel-compact"><h3 id="modalTitle">Traject</h3>
 <form id="cardForm" class="grid-2"><input type="hidden" name="id"/>
 <input type="hidden" name="clubId"/>
 <label>Vereniging (uit database)
@@ -99,7 +104,12 @@
 <label>Type traject<select name="typeTraject" required>
   <option value="">Kies…</option><option>CKC</option><option>Rabo Clubsupport</option><option>Verenigingsmanager</option><option>Verduurzaming</option>
 </select></label>
-<label>Clubondersteuner<input name="clubondersteuner" required/></label>
+<label>Clubondersteuner
+  <select name="clubondersteuner" id="clubondersteuner" required>
+    <option value="">Kies…</option>
+    <option value='Aimee'>Aimee</option><option value='Allard'>Allard</option><option value='Birgitta'>Birgitta</option><option value='Demi'>Demi</option><option value='Jorick'>Jorick</option><option value='Justin'>Justin</option><option value='Marvin'>Marvin</option><option value='Rainer'>Rainer</option><option value='Sybren'>Sybren</option><option value='Tjardo'>Tjardo</option>
+  </select>
+</label>
 <label>Trajectbegeleider<input name="trajectbegeleider" required/></label>
 <label>Start traject<input name="startDate" type="date" required/></label>
 <label>Verwacht einde<input name="endDateExpected" type="date" required/></label>
