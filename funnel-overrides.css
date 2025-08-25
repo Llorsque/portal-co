@@ -1,1 +1,6 @@
-/* overrides */
+
+/* Funnel v7b overrides (scoped) */
+.modal .panel.panel-compact { width: 95%; max-width: 720px; max-height: 90vh; overflow: auto; }
+@media (max-width: 840px) {
+  .grid-2 { grid-template-columns: 1fr !important; }
+}
