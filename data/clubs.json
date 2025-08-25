@@ -1,26 +1,802 @@
 [
   {
-    "id": "club-001",
-    "naam": "VV Dynamo",
-    "plaats": "Amersfoort",
-    "sport": "Voetbal"
+    "id": "FR-001",
+    "naam": "Atletiekvereniging Balk"
   },
   {
-    "id": "club-002",
-    "naam": "HV Groenstad",
-    "plaats": "Utrecht",
-    "sport": "Handbal"
+    "id": "FR-002",
+    "naam": "Atletiekvereniging Grou"
   },
   {
-    "id": "club-003",
-    "naam": "TC Service Ace",
-    "plaats": "Zwolle",
-    "sport": "Tennis"
+    "id": "FR-003",
+    "naam": "Badmintonclub Franeker"
   },
   {
-    "id": "club-004",
-    "naam": "HV Hattrick",
-    "plaats": "Leiden",
-    "sport": "Hockey"
+    "id": "FR-004",
+    "naam": "Badmintonclub St.-Nicolaasga"
+  },
+  {
+    "id": "FR-005",
+    "naam": "Badmintonclub Tytsjerk"
+  },
+  {
+    "id": "FR-006",
+    "naam": "Badmintonclub Warga"
+  },
+  {
+    "id": "FR-007",
+    "naam": "Basketbalclub Buitenpost"
+  },
+  {
+    "id": "FR-008",
+    "naam": "Basketbalclub Dokkum"
+  },
+  {
+    "id": "FR-009",
+    "naam": "Basketbalclub Grou"
+  },
+  {
+    "id": "FR-010",
+    "naam": "Basketbalclub Makkum"
+  },
+  {
+    "id": "FR-011",
+    "naam": "Basketbalclub Stavoren"
+  },
+  {
+    "id": "FR-012",
+    "naam": "Handbalvereniging Balk"
+  },
+  {
+    "id": "FR-013",
+    "naam": "Handbalvereniging Burgum"
+  },
+  {
+    "id": "FR-014",
+    "naam": "Handbalvereniging Dronrijp"
+  },
+  {
+    "id": "FR-015",
+    "naam": "Handbalvereniging Nes"
+  },
+  {
+    "id": "FR-016",
+    "naam": "Handbalvereniging Reduzum"
+  },
+  {
+    "id": "FR-017",
+    "naam": "Handbalvereniging Ureterp"
+  },
+  {
+    "id": "FR-018",
+    "naam": "Hockeyclub Aldeboarn"
+  },
+  {
+    "id": "FR-019",
+    "naam": "Hockeyclub Ferwert"
+  },
+  {
+    "id": "FR-020",
+    "naam": "Hockeyclub Gorredijk"
+  },
+  {
+    "id": "FR-021",
+    "naam": "Hockeyclub IJlst"
+  },
+  {
+    "id": "FR-022",
+    "naam": "Hockeyclub Sneek"
+  },
+  {
+    "id": "FR-023",
+    "naam": "Hockeyclub Stiens"
+  },
+  {
+    "id": "FR-024",
+    "naam": "Hockeyclub Wolvega"
+  },
+  {
+    "id": "FR-025",
+    "naam": "IJsclub Bolsward"
+  },
+  {
+    "id": "FR-026",
+    "naam": "IJsclub IJlst"
+  },
+  {
+    "id": "FR-027",
+    "naam": "IJsclub Leeuwarden"
+  },
+  {
+    "id": "FR-028",
+    "naam": "IJsclub Marrum"
+  },
+  {
+    "id": "FR-029",
+    "naam": "IJsclub Oosterwolde"
+  },
+  {
+    "id": "FR-030",
+    "naam": "Kaatsvereniging Akkrum"
+  },
+  {
+    "id": "FR-031",
+    "naam": "Kaatsvereniging Aldeboarn"
+  },
+  {
+    "id": "FR-032",
+    "naam": "Kaatsvereniging Balk"
+  },
+  {
+    "id": "FR-033",
+    "naam": "Kaatsvereniging Beetgum"
+  },
+  {
+    "id": "FR-034",
+    "naam": "Kaatsvereniging Beetsterzwaag"
+  },
+  {
+    "id": "FR-035",
+    "naam": "Kaatsvereniging Berltsum"
+  },
+  {
+    "id": "FR-036",
+    "naam": "Kaatsvereniging Bolsward"
+  },
+  {
+    "id": "FR-037",
+    "naam": "Kaatsvereniging Buitenpost"
+  },
+  {
+    "id": "FR-038",
+    "naam": "Kaatsvereniging Burgum"
+  },
+  {
+    "id": "FR-039",
+    "naam": "Kaatsvereniging Damwoude"
+  },
+  {
+    "id": "FR-040",
+    "naam": "Kaatsvereniging Dokkum"
+  },
+  {
+    "id": "FR-041",
+    "naam": "Kaatsvereniging Drachten"
+  },
+  {
+    "id": "FR-042",
+    "naam": "Kaatsvereniging Dronrijp"
+  },
+  {
+    "id": "FR-043",
+    "naam": "Kaatsvereniging Eastermar"
+  },
+  {
+    "id": "FR-044",
+    "naam": "Kaatsvereniging Ferwert"
+  },
+  {
+    "id": "FR-045",
+    "naam": "Kaatsvereniging Franeker"
+  },
+  {
+    "id": "FR-046",
+    "naam": "Kaatsvereniging Gorredijk"
+  },
+  {
+    "id": "FR-047",
+    "naam": "Kaatsvereniging Grou"
+  },
+  {
+    "id": "FR-048",
+    "naam": "Kaatsvereniging Harlingen"
+  },
+  {
+    "id": "FR-049",
+    "naam": "Kaatsvereniging Heeg"
+  },
+  {
+    "id": "FR-050",
+    "naam": "Kaatsvereniging Heerenveen"
+  },
+  {
+    "id": "FR-051",
+    "naam": "Kaatsvereniging Holwerd"
+  },
+  {
+    "id": "FR-052",
+    "naam": "Kaatsvereniging IJlst"
+  },
+  {
+    "id": "FR-053",
+    "naam": "Kaatsvereniging Jirnsum"
+  },
+  {
+    "id": "FR-054",
+    "naam": "Kaatsvereniging Joure"
+  },
+  {
+    "id": "FR-055",
+    "naam": "Kaatsvereniging Kollum"
+  },
+  {
+    "id": "FR-056",
+    "naam": "Kaatsvereniging Leeuwarden"
+  },
+  {
+    "id": "FR-057",
+    "naam": "Kaatsvereniging Lemmer"
+  },
+  {
+    "id": "FR-058",
+    "naam": "Kaatsvereniging Makkum"
+  },
+  {
+    "id": "FR-059",
+    "naam": "Kaatsvereniging Marrum"
+  },
+  {
+    "id": "FR-060",
+    "naam": "Kaatsvereniging Nes"
+  },
+  {
+    "id": "FR-061",
+    "naam": "Kaatsvereniging Oosterwolde"
+  },
+  {
+    "id": "FR-062",
+    "naam": "Kaatsvereniging Reduzum"
+  },
+  {
+    "id": "FR-063",
+    "naam": "Kaatsvereniging Sneek"
+  },
+  {
+    "id": "FR-064",
+    "naam": "Kaatsvereniging St.-Annaparochie"
+  },
+  {
+    "id": "FR-065",
+    "naam": "Kaatsvereniging St.-Nicolaasga"
+  },
+  {
+    "id": "FR-066",
+    "naam": "Kaatsvereniging Stavoren"
+  },
+  {
+    "id": "FR-067",
+    "naam": "Kaatsvereniging Stiens"
+  },
+  {
+    "id": "FR-068",
+    "naam": "Kaatsvereniging Surhuisterveen"
+  },
+  {
+    "id": "FR-069",
+    "naam": "Kaatsvereniging Terherne"
+  },
+  {
+    "id": "FR-070",
+    "naam": "Kaatsvereniging Tytsjerk"
+  },
+  {
+    "id": "FR-071",
+    "naam": "Kaatsvereniging Ureterp"
+  },
+  {
+    "id": "FR-072",
+    "naam": "Kaatsvereniging Warga"
+  },
+  {
+    "id": "FR-073",
+    "naam": "Kaatsvereniging Wolvega"
+  },
+  {
+    "id": "FR-074",
+    "naam": "Kaatsvereniging Workum"
+  },
+  {
+    "id": "FR-075",
+    "naam": "Korfbalvereniging Beetsterzwaag"
+  },
+  {
+    "id": "FR-076",
+    "naam": "Korfbalvereniging Buitenpost"
+  },
+  {
+    "id": "FR-077",
+    "naam": "Korfbalvereniging Heeg"
+  },
+  {
+    "id": "FR-078",
+    "naam": "Korfbalvereniging Heerenveen"
+  },
+  {
+    "id": "FR-079",
+    "naam": "Korfbalvereniging Holwerd"
+  },
+  {
+    "id": "FR-080",
+    "naam": "Korfbalvereniging Kollum"
+  },
+  {
+    "id": "FR-081",
+    "naam": "Korfbalvereniging Lemmer"
+  },
+  {
+    "id": "FR-082",
+    "naam": "Korfbalvereniging Marrum"
+  },
+  {
+    "id": "FR-083",
+    "naam": "Korfbalvereniging Oosterwolde"
+  },
+  {
+    "id": "FR-084",
+    "naam": "Korfbalvereniging St.-Nicolaasga"
+  },
+  {
+    "id": "FR-085",
+    "naam": "Korfbalvereniging Stavoren"
+  },
+  {
+    "id": "FR-086",
+    "naam": "Korfbalvereniging Terherne"
+  },
+  {
+    "id": "FR-087",
+    "naam": "Roeivereniging Heeg"
+  },
+  {
+    "id": "FR-088",
+    "naam": "Roeivereniging Joure"
+  },
+  {
+    "id": "FR-089",
+    "naam": "Roeivereniging Sneek"
+  },
+  {
+    "id": "FR-090",
+    "naam": "Roeivereniging Wolvega"
+  },
+  {
+    "id": "FR-091",
+    "naam": "Rugbyclub Berltsum"
+  },
+  {
+    "id": "FR-092",
+    "naam": "Rugbyclub Dronrijp"
+  },
+  {
+    "id": "FR-093",
+    "naam": "Rugbyclub Franeker"
+  },
+  {
+    "id": "FR-094",
+    "naam": "Schaatsvereniging Aldeboarn"
+  },
+  {
+    "id": "FR-095",
+    "naam": "Schaatsvereniging Bolsward"
+  },
+  {
+    "id": "FR-096",
+    "naam": "Schaatsvereniging Damwoude"
+  },
+  {
+    "id": "FR-097",
+    "naam": "Schaatsvereniging Eastermar"
+  },
+  {
+    "id": "FR-098",
+    "naam": "Schaatsvereniging Ferwert"
+  },
+  {
+    "id": "FR-099",
+    "naam": "Schaatsvereniging Jirnsum"
+  },
+  {
+    "id": "FR-100",
+    "naam": "Schaatsvereniging St.-Annaparochie"
+  },
+  {
+    "id": "FR-101",
+    "naam": "Schaatsvereniging Warga"
+  },
+  {
+    "id": "FR-102",
+    "naam": "Sportvereniging Akkrum"
+  },
+  {
+    "id": "FR-103",
+    "naam": "Sportvereniging Aldeboarn"
+  },
+  {
+    "id": "FR-104",
+    "naam": "Sportvereniging Balk"
+  },
+  {
+    "id": "FR-105",
+    "naam": "Sportvereniging Beetgum"
+  },
+  {
+    "id": "FR-106",
+    "naam": "Sportvereniging Beetsterzwaag"
+  },
+  {
+    "id": "FR-107",
+    "naam": "Sportvereniging Berltsum"
+  },
+  {
+    "id": "FR-108",
+    "naam": "Sportvereniging Bolsward"
+  },
+  {
+    "id": "FR-109",
+    "naam": "Sportvereniging Buitenpost"
+  },
+  {
+    "id": "FR-110",
+    "naam": "Sportvereniging Burgum"
+  },
+  {
+    "id": "FR-111",
+    "naam": "Sportvereniging Damwoude"
+  },
+  {
+    "id": "FR-112",
+    "naam": "Sportvereniging Dokkum"
+  },
+  {
+    "id": "FR-113",
+    "naam": "Sportvereniging Drachten"
+  },
+  {
+    "id": "FR-114",
+    "naam": "Sportvereniging Dronrijp"
+  },
+  {
+    "id": "FR-115",
+    "naam": "Sportvereniging Eastermar"
+  },
+  {
+    "id": "FR-116",
+    "naam": "Sportvereniging Ferwert"
+  },
+  {
+    "id": "FR-117",
+    "naam": "Sportvereniging Franeker"
+  },
+  {
+    "id": "FR-118",
+    "naam": "Sportvereniging Gorredijk"
+  },
+  {
+    "id": "FR-119",
+    "naam": "Sportvereniging Grou"
+  },
+  {
+    "id": "FR-120",
+    "naam": "Sportvereniging Harlingen"
+  },
+  {
+    "id": "FR-121",
+    "naam": "Sportvereniging Heeg"
+  },
+  {
+    "id": "FR-122",
+    "naam": "Sportvereniging Heerenveen"
+  },
+  {
+    "id": "FR-123",
+    "naam": "Sportvereniging Holwerd"
+  },
+  {
+    "id": "FR-124",
+    "naam": "Sportvereniging IJlst"
+  },
+  {
+    "id": "FR-125",
+    "naam": "Sportvereniging Jirnsum"
+  },
+  {
+    "id": "FR-126",
+    "naam": "Sportvereniging Joure"
+  },
+  {
+    "id": "FR-127",
+    "naam": "Sportvereniging Kollum"
+  },
+  {
+    "id": "FR-128",
+    "naam": "Sportvereniging Leeuwarden"
+  },
+  {
+    "id": "FR-129",
+    "naam": "Sportvereniging Lemmer"
+  },
+  {
+    "id": "FR-130",
+    "naam": "Sportvereniging Makkum"
+  },
+  {
+    "id": "FR-131",
+    "naam": "Sportvereniging Marrum"
+  },
+  {
+    "id": "FR-132",
+    "naam": "Sportvereniging Nes"
+  },
+  {
+    "id": "FR-133",
+    "naam": "Sportvereniging Oosterwolde"
+  },
+  {
+    "id": "FR-134",
+    "naam": "Sportvereniging Reduzum"
+  },
+  {
+    "id": "FR-135",
+    "naam": "Sportvereniging Sneek"
+  },
+  {
+    "id": "FR-136",
+    "naam": "Sportvereniging St.-Annaparochie"
+  },
+  {
+    "id": "FR-137",
+    "naam": "Sportvereniging St.-Nicolaasga"
+  },
+  {
+    "id": "FR-138",
+    "naam": "Sportvereniging Stavoren"
+  },
+  {
+    "id": "FR-139",
+    "naam": "Sportvereniging Stiens"
+  },
+  {
+    "id": "FR-140",
+    "naam": "Sportvereniging Surhuisterveen"
+  },
+  {
+    "id": "FR-141",
+    "naam": "Sportvereniging Terherne"
+  },
+  {
+    "id": "FR-142",
+    "naam": "Sportvereniging Tytsjerk"
+  },
+  {
+    "id": "FR-143",
+    "naam": "Sportvereniging Ureterp"
+  },
+  {
+    "id": "FR-144",
+    "naam": "Sportvereniging Warga"
+  },
+  {
+    "id": "FR-145",
+    "naam": "Sportvereniging Wolvega"
+  },
+  {
+    "id": "FR-146",
+    "naam": "Sportvereniging Workum"
+  },
+  {
+    "id": "FR-147",
+    "naam": "Tennisclub Akkrum"
+  },
+  {
+    "id": "FR-148",
+    "naam": "Tennisclub Aldeboarn"
+  },
+  {
+    "id": "FR-149",
+    "naam": "Tennisclub Balk"
+  },
+  {
+    "id": "FR-150",
+    "naam": "Tennisclub Beetgum"
+  },
+  {
+    "id": "FR-151",
+    "naam": "Tennisclub Beetsterzwaag"
+  },
+  {
+    "id": "FR-152",
+    "naam": "Tennisclub Berltsum"
+  },
+  {
+    "id": "FR-153",
+    "naam": "Tennisclub Bolsward"
+  },
+  {
+    "id": "FR-154",
+    "naam": "Tennisclub Buitenpost"
+  },
+  {
+    "id": "FR-155",
+    "naam": "Tennisclub Burgum"
+  },
+  {
+    "id": "FR-156",
+    "naam": "Tennisclub Damwoude"
+  },
+  {
+    "id": "FR-157",
+    "naam": "Tennisclub Dokkum"
+  },
+  {
+    "id": "FR-158",
+    "naam": "Tennisclub Drachten"
+  },
+  {
+    "id": "FR-159",
+    "naam": "Tennisclub Dronrijp"
+  },
+  {
+    "id": "FR-160",
+    "naam": "Tennisclub Eastermar"
+  },
+  {
+    "id": "FR-161",
+    "naam": "Tennisclub Ferwert"
+  },
+  {
+    "id": "FR-162",
+    "naam": "Tennisclub Franeker"
+  },
+  {
+    "id": "FR-163",
+    "naam": "Tennisclub Gorredijk"
+  },
+  {
+    "id": "FR-164",
+    "naam": "Tennisclub Grou"
+  },
+  {
+    "id": "FR-165",
+    "naam": "Tennisclub Harlingen"
+  },
+  {
+    "id": "FR-166",
+    "naam": "Tennisclub Heeg"
+  },
+  {
+    "id": "FR-167",
+    "naam": "Tennisclub Heerenveen"
+  },
+  {
+    "id": "FR-168",
+    "naam": "Tennisclub Holwerd"
+  },
+  {
+    "id": "FR-169",
+    "naam": "Tennisclub IJlst"
+  },
+  {
+    "id": "FR-170",
+    "naam": "Tennisclub Jirnsum"
+  },
+  {
+    "id": "FR-171",
+    "naam": "Tennisclub Joure"
+  },
+  {
+    "id": "FR-172",
+    "naam": "Tennisclub Kollum"
+  },
+  {
+    "id": "FR-173",
+    "naam": "Tennisclub Leeuwarden"
+  },
+  {
+    "id": "FR-174",
+    "naam": "Tennisclub Lemmer"
+  },
+  {
+    "id": "FR-175",
+    "naam": "Tennisclub Makkum"
+  },
+  {
+    "id": "FR-176",
+    "naam": "Tennisclub Marrum"
+  },
+  {
+    "id": "FR-177",
+    "naam": "Tennisclub Nes"
+  },
+  {
+    "id": "FR-178",
+    "naam": "Tennisclub Oosterwolde"
+  },
+  {
+    "id": "FR-179",
+    "naam": "Tennisclub Reduzum"
+  },
+  {
+    "id": "FR-180",
+    "naam": "Tennisclub Sneek"
+  },
+  {
+    "id": "FR-181",
+    "naam": "Tennisclub St.-Annaparochie"
+  },
+  {
+    "id": "FR-182",
+    "naam": "Tennisclub St.-Nicolaasga"
+  },
+  {
+    "id": "FR-183",
+    "naam": "Tennisclub Stavoren"
+  },
+  {
+    "id": "FR-184",
+    "naam": "Tennisclub Stiens"
+  },
+  {
+    "id": "FR-185",
+    "naam": "Tennisclub Surhuisterveen"
+  },
+  {
+    "id": "FR-186",
+    "naam": "Tennisclub Terherne"
+  },
+  {
+    "id": "FR-187",
+    "naam": "Tennisclub Tytsjerk"
+  },
+  {
+    "id": "FR-188",
+    "naam": "Tennisclub Ureterp"
+  },
+  {
+    "id": "FR-189",
+    "naam": "Tennisclub Warga"
+  },
+  {
+    "id": "FR-190",
+    "naam": "Tennisclub Wolvega"
+  },
+  {
+    "id": "FR-191",
+    "naam": "Tennisclub Workum"
+  },
+  {
+    "id": "FR-192",
+    "naam": "Turnvereniging Berltsum"
+  },
+  {
+    "id": "FR-193",
+    "naam": "Turnvereniging Eastermar"
+  },
+  {
+    "id": "FR-194",
+    "naam": "Turnvereniging Makkum"
+  },
+  {
+    "id": "FR-195",
+    "naam": "Voetbalvereniging Akkrum"
+  },
+  {
+    "id": "FR-196",
+    "naam": "Voetbalvereniging Aldeboarn"
+  },
+  {
+    "id": "FR-197",
+    "naam": "Voetbalvereniging Balk"
+  },
+  {
+    "id": "FR-198",
+    "naam": "Voetbalvereniging Beetgum"
+  },
+  {
+    "id": "FR-199",
+    "naam": "Voetbalvereniging Beetsterzwaag"
+  },
+  {
+    "id": "FR-200",
+    "naam": "Voetbalvereniging Berltsum"
   }
 ]

@@ -1,0 +1,38 @@
+<!doctype html><html lang="nl"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Test Club Picker</title>
+<style>
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:24px}
+  label{display:block;margin:12px 0 6px}
+  input,button{padding:8px 10px;border:1px solid #ddd;border-radius:8px;width:100%;max-width:420px}
+  .hint{color:#666;font-size:13px}
+</style>
+</head><body>
+<h1>Test — Vereniging kiezen</h1>
+<p class="hint">Deze simpele pagina laadt <code>data/clubs.json</code> en vult de datalist voor snelle zoek/selectie.</p>
+<label for="clubInput">Vereniging</label>
+<input id="clubInput" list="clubsList" placeholder="Zoek/Selecteer vereniging…"/>
+<datalist id="clubsList"></datalist>
+<script>
+(async function(){
+  try{
+    const res = await fetch('data/clubs.json', { cache: 'no-store' });
+    const clubs = await res.json();
+    clubs.sort((a,b)=>a.naam.localeCompare(b.naam,'nl'));
+    const dl = document.getElementById('clubsList');
+    dl.innerHTML = '';
+    clubs.forEach(c=>{
+      const o = document.createElement('option');
+      o.value = `${c.id} — ${c.naam}`;
+      dl.appendChild(o);
+    });
+    const input = document.getElementById('clubInput');
+    input.addEventListener('change', ()=>{
+      const v = input.value;
+      const hit = clubs.find(c => v.toLowerCase()===`${c.id} — ${c.naam}`.toLowerCase() || v.toLowerCase()===c.naam.toLowerCase() || v.toLowerCase()===c.id.toLowerCase());
+      if(hit){ input.value = hit.naam; }
+    });
+  }catch(e){ console.error(e); alert('Kon data/clubs.json niet laden'); }
+})();
+</script>
+</body></html>
